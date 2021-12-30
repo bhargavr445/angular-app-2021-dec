@@ -7,18 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit {
-  title = 'css-app';
+
+  title: string = 'Training';
+  name: string = 'Bhargav';
+  trainingHours: number =0;
+
+  student: any = {
+    name: 'Bhargav R G',
+    email: 'bhargavr445@gmail.com'
+  };
 
   constructor() {
-    this.getAllData(1, 'bh', true, ['a'],[1,2], {name: 'ram', id: 123});
-  }
+  };
 
   ngOnInit() {
+    this.getAllStudents();
+  };
 
+  getAllStudents() {
+    let { name, email } = this.student;
+    // console.log(name);
+    // console.log(email);
+    ({ name } = this.student);
+    console.log(name);
   }
 
-  getAllData = (a: number, b: string, c: boolean, d: string[], e: number[], f: {name: string, id: number}) => {
-    console.log(a,b,c,d,e,f);
+  courseType(tutorialType: string, duration: number) {
+    this.title = tutorialType;
+    this.trainingHours = duration;
+
   }
+  
 
 }
